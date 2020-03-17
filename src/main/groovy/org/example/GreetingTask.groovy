@@ -2,6 +2,7 @@ package org.example
 
 import org.gradle.api.DefaultTask
 import org.gradle.api.provider.Property
+import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.TaskAction
 
 class GreetingTask extends DefaultTask {
@@ -10,9 +11,18 @@ class GreetingTask extends DefaultTask {
     private final Property<String> message
 
     GreetingTask() {
-        def greetingPluginExtension = getProject().getExtensions().getByType(GreetingPluginExtension)
-        greeter = greetingPluginExtension.greeter
-        message = greetingPluginExtension.message
+        greeter = getProject().getObjects() property(String.class)
+        message = getProject().getObjects() property(String.class)
+    }
+
+    @Input
+    Property<String> getGreeter() {
+        return greeter
+    }
+
+    @Input
+    Property<String> getMessage() {
+        return message
     }
 
     @TaskAction
