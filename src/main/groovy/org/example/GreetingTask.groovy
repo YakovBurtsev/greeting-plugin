@@ -11,8 +11,8 @@ class GreetingTask extends DefaultTask {
     private final Property<String> message
 
     GreetingTask() {
-        greeter = getProject().getObjects() property(String.class)
-        message = getProject().getObjects() property(String.class)
+        greeter = project.objects.property(String.class)
+        message = project.objects.property(String.class)
     }
 
     @Input

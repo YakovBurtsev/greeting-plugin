@@ -8,14 +8,14 @@ class GreetingPlugin implements Plugin<Project> {
 
     void apply(Project project) {
 
-        def extension = project.extensions.create('greeting', GreetingPluginExtension, project)
+        def extension = project.extensions.create('greeting', GreetingExtension)
 
-        project.getTasks().register('hello', GreetingTask.class, new Action<GreetingTask>() {
+        project.getTasks().register('greet', GreetingTask.class, new Action<GreetingTask>() {
 
             void execute(GreetingTask greetingTask) {
-                greetingTask.getGreeter().set(extension.getGreeter())
-                greetingTask.getMessage().set(extension.getMessage())
+                greetingTask.greeter.set(extension.greeter)
+                greetingTask.message.set(extension.message)
             }
-        });
+        })
     }
 }

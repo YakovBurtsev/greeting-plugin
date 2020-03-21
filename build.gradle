@@ -19,6 +19,7 @@ repositories {
 
 dependencies {
     implementation localGroovy()
+
     testImplementation "org.junit.jupiter:junit-jupiter-api:5.5.0"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.5.0"
 }
@@ -36,4 +37,4 @@ test {
 }
 
 group 'org.example'
-version '1.2'
+version '1.4'
