@@ -7,8 +7,8 @@ import javax.inject.Inject
 
 class GreetingExtension {
 
-    public final Property<String> message
-    public final Property<String> greeter
+    private final Property<String> message
+    private final Property<String> greeter
 
     @Inject
     GreetingExtension(ObjectFactory objectFactory) {
