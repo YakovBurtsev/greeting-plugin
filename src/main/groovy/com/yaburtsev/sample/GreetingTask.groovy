@@ -1,4 +1,4 @@
-package org.example
+package com.yaburtsev.sample
 
 import org.gradle.api.DefaultTask
 import org.gradle.api.provider.Property

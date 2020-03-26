@@ -1,14 +1,25 @@
 plugins {
     id 'java-gradle-plugin'
-    id 'maven-publish'
     id 'groovy'
+    id "com.gradle.plugin-publish" version "0.10.1"
+}
+
+group 'org.example'
+version '1.4'
+
+pluginBundle {
+    website = 'https://github.com/YakovBurtsev/greeting-plugin'
+    vcsUrl = 'https://github.com/YakovBurtsev/greeting-plugin.git'
+    tags = ['sample', 'greeting']
 }
 
 gradlePlugin {
     plugins {
-        simplePlugin {
-            id = 'org.example.greeting'
-            implementationClass = 'org.example.GreetingPlugin'
+        greetingPlugin {
+            id = 'com.yaburtsev.sample.greeting'
+            displayName = 'Greeting plugin'
+            description = 'Sample of a Gradle plugin'
+            implementationClass = 'com.yaburtsev.sample.GreetingPlugin'
         }
     }
 }
@@ -20,21 +31,10 @@ repositories {
 dependencies {
     implementation localGroovy()
 
-    testImplementation "org.junit.jupiter:junit-jupiter-api:5.5.0"
-    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.5.0"
-}
-
-publishing {
-    publications {
-        maven(MavenPublication) {
-            from components.java
-        }
-    }
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}"
 }
 
 test {
     useJUnitPlatform()
 }
-
-group 'org.example'
-version '1.4'

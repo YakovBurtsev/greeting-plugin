@@ -1,4 +1,4 @@
-package org.example
+package com.yaburtsev.sample
 
 import org.gradle.api.Project
 import org.gradle.testfixtures.ProjectBuilder
@@ -11,7 +11,7 @@ class GreetingPluginTest {
     @Test
     void greeterPluginAddsGreetingTaskToProject() {
         Project project = ProjectBuilder.builder().build()
-        project.pluginManager.apply 'org.example.greeting'
+        project.pluginManager.apply 'com.yaburtsev.sample.greeting'
 
         assertTrue(project.tasks.greet instanceof GreetingTask)
     }

@@ -1,4 +1,4 @@
-package org.example
+package com.yaburtsev.sample
 
 import org.gradle.api.Action
 import org.gradle.api.Plugin

@@ -1,4 +1,4 @@
-package org.example
+package com.yaburtsev.sample
 
 import org.gradle.api.model.ObjectFactory
 import org.gradle.api.provider.Property
